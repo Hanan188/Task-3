@@ -1,0 +1,336 @@
+{
+  "intents": [
+    {
+      "intent": "coffee",
+      "examples": [
+        {
+          "text": "black coffee"
+        },
+        {
+          "text": "Cappuccino"
+        },
+        {
+          "text": "Italian coffee"
+        },
+        {
+          "text": "latte art"
+        },
+        {
+          "text": "Spanish Latte"
+        },
+        {
+          "text": "Turkish Coffee"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "goodbyes",
+      "examples": [
+        {
+          "text": "Bye"
+        },
+        {
+          "text": "Good Bye"
+        },
+        {
+          "text": "Nice meeting you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "size_coffee",
+      "examples": [
+        {
+          "text": "large"
+        },
+        {
+          "text": "medium"
+        },
+        {
+          "text": "small"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "sweets",
+      "examples": [
+        {
+          "text": "cookies"
+        },
+        {
+          "text": "Marble Cake"
+        },
+        {
+          "text": "muffin cake"
+        },
+        {
+          "text": "pancake"
+        },
+        {
+          "text": "souffle"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "thank_you",
+      "examples": [
+        {
+          "text": "really appreciate"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "thank you"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_4_1627790340997",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "size",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What size is right for you?"
+              },
+              {
+                "text": "What size do you want?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#size_coffee",
+      "dialog_node": "node_10_1627791869891",
+      "previous_sibling": "node_3_1627791738835"
+    },
+    {
+      "type": "standard",
+      "title": "coffee",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "what do you want?"
+              },
+              {
+                "text": "how can I help you?"
+              },
+              {
+                "text": "What is your request?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#coffee",
+      "dialog_node": "node_3_1627791738835",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "hello",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi,nice meeting you"
+              },
+              {
+                "text": "hello"
+              },
+              {
+                "text": "hi"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "dialog_node": "node_4_1627790069213",
+      "previous_sibling": "Anything else"
+    },
+    {
+      "type": "standard",
+      "title": "goodbyes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " bye nice meeting you too"
+              },
+              {
+                "text": "bye"
+              },
+              {
+                "text": "bye ,do not forget me"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#goodbyes",
+      "dialog_node": "node_4_1627790340997",
+      "previous_sibling": "node_8_1627790189855"
+    },
+    {
+      "type": "standard",
+      "title": "sweets",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What do you want from sweets?"
+              },
+              {
+                "text": "What kind of sweet do you want?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#sweets",
+      "dialog_node": "node_5_1627791948476",
+      "previous_sibling": "node_10_1627791869891"
+    },
+    {
+      "type": "standard",
+      "title": "thank you",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "my pleasure"
+              },
+              {
+                "text": "glad it helped"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#thank_you",
+      "dialog_node": "node_8_1627790189855",
+      "previous_sibling": "node_5_1627791948476"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "test",
+  "language": "en",
+  "description": ""
+}
